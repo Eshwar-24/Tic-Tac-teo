@@ -1,6 +1,15 @@
 import React from "react";
 import "./style.css";
-export default ({ children, className }) => {
-  var a = className === undefined ? null : className;
-  return <button className={a}>{children} 1</button>;
+export default (p) => {
+  let { children, className, choose, id } = p;
+  //console.log(cli);
+  //console.log(p);
+  let a = className === undefined ? null : className;
+  const select = () => choose(id);
+
+  return (
+    <button className={a} onClick={select}>
+      {children}
+    </button>
+  );
 };

@@ -6,6 +6,11 @@
   flex-direction: column;
   background-color: white;
 }
+h1 {
+  font-family: cursive;
+  margin: 50px;
+  color: rgb(120, 198, 229);
+}
 button {
   border-top-width: 0px;
   border-left-width: 0px;
@@ -15,10 +20,29 @@ button {
   border-bottom-width: 2px;
   font-size: 40px;
   height: 80px;
-  padding: 0px;
+  padding: 21px;
   width: 120px;
   box-sizing: border-box;
   background-color: white;
+}
+.refresh {
+  border-radius: 5px;
+  border-width: 2px;
+  background-color: rgb(120, 198, 229);
+  font-size: 24px;
+  height: 55px;
+  width: 107px;
+  font-family: cursive;
+  padding: 2px;
+  margin: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+p {
+  font-family: cursive;
+  font-size: 26px;
+  margin: 40px;
+  color: rgb(120, 198, 229);
 }
 
 .row {
