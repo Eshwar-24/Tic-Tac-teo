@@ -3,7 +3,7 @@ import Board from "./components/board";
 import { winner } from "./components/winner";
 import "./components/style.css";
 class App extends Component {
-  state = { value: new Array(9).fill(null) };
+  state = { value: new Array(9).fill(null), isfill: 0 };
   player = false;
   win = false;
   square = (id) => {
@@ -12,6 +12,7 @@ class App extends Component {
         if (!this.win) {
           pre.value[id] = this.player ? "O" : "X";
           this.player = !this.player;
+          pre.isfill++;
         }
       }
       this.win = winner(pre);
@@ -19,11 +20,11 @@ class App extends Component {
     });
   };
   restart = () => {
-    //console.log("kk");
     this.setState((pre) => {
       pre.value = new Array(9).fill(null);
       this.player = false;
       this.win = false;
+      pre.isfill = 0;
       return pre;
     });
   };
@@ -38,11 +39,13 @@ class App extends Component {
             ? !this.player
               ? "O Congrats"
               : "X Congrats"
+            : this.state.isfill == 9
+            ? "Game is Tie"
             : this.player
             ? "O"
             : "X"}
         </p>
-        {this.win && (
+        {(this.win || this.state.isfill == 9) && (
           <button className="refresh" onClick={this.restart}>
             restart
           </button>
